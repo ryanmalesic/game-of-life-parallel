@@ -3,4 +3,5 @@ project(GameOfLife)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(GameOfLife main.cpp)
+include_directories(include)
+add_subdirectory(src)
