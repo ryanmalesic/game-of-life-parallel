@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="0c6579c0-2246-44d4-b45f-61d110af4bce" name="LinuxLab">
+        <fileTransfer rootFolder="/home/students/rtmalesi" accessType="SFTP" host="tarjan.cs.millersville.edu" port="22" sshConfigId="8702f7a9-c3e4-4cbd-8b59-b90de8cf8528" sshConfig="rtmalesi@tarjan.cs.millersville.edu:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
