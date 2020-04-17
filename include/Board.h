@@ -11,7 +11,7 @@ class Board {
 public:
   Board(size_t M, size_t N);
   void print();
-  virtual void randomize() = 0;
+  void randomize();
   virtual void tick() = 0;
 protected:
   bool* board;

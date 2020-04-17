@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <random>
 #include "Board.h"
 
 Board::Board(size_t M, size_t N) : M(M), N(N), board(new bool[M * N]{false}) {};
@@ -15,4 +16,14 @@ void Board::print() {
     std::cout << std::endl;
   }
   std::cout << std::endl;
+}
+
+void Board::randomize() {
+  std::minstd_rand rng(std::random_device{}());
+
+  for (int m = 1; m < this->M - 1; ++m) {
+    for (int n = 1; n < this->N - 1; ++n) {
+      board[m * N + n] = (rng() % 2) == 1;
+    }
+  }
 }
