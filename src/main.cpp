@@ -17,10 +17,10 @@ int main(int argc, char **argv) {
   int opt = 0;
 
   static struct option long_options[] = {
+      {"board", required_argument, nullptr, 'b'},
       {"print", no_argument, nullptr, 'p'},
       {"step", no_argument, nullptr, 's'},
       {"time", no_argument, nullptr, 't'},
-      {"board", required_argument, nullptr, 'b'},
       {"rows", required_argument, nullptr, 'm'},
       {"cols", required_argument, nullptr, 'n'},
       {nullptr, 0, nullptr, 0}
@@ -28,7 +28,7 @@ int main(int argc, char **argv) {
 
   int long_index = 0;
 
-  while ((opt = getopt_long(argc, argv, "tpb:m:n:",
+  while ((opt = getopt_long(argc, argv, "b:m:n:pst",
                             long_options, &long_index)) != -1) {
     switch (opt) {
     case 'b' : board_string.assign(optarg);
