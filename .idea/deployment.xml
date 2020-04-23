@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="LinuxLab">
+  <component name="PublishConfigData">
     <serverData>
-      <paths name="Remote Host (ce24deb8-13ab-4a22-bcbc-ff5b0312906c)">
+      <paths name="Remote Host (330c05d1-103f-4bb7-83b5-70f6df659cf3)">
         <serverdata>
           <mappings>
-            <mapping deploy="/tmp/tmp.lvaKE4b3kh" local="$PROJECT_DIR$" />
+            <mapping deploy="/tmp/tmp.I5nPoNbvbc" local="$PROJECT_DIR$" />
           </mappings>
           <excludedPaths>
-            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-remote" />
-            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-remote-host" />
           </excludedPaths>
         </serverdata>
       </paths>
