@@ -10,7 +10,7 @@
 class Board {
 public:
   Board(size_t M, size_t N);
-  virtual ~Board() = default;
+  virtual ~Board();
   void print();
   void randomize();
   virtual void tick() = 0;
