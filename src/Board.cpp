@@ -6,12 +6,12 @@
 #include <random>
 #include "Board.h"
 
-Board::Board(size_t M, size_t N) : M(M), N(N), board(new bool[M * N]{false}) {};
+Board::Board(size_t M, size_t N) : M(M), N(N), cells(new bool[M * N]{false}) {};
 
 void Board::print() {
   for (int m = 0; m < this->M; ++m) {
     for (int n = 0; n < this->N; ++n) {
-      std::cout << (this->board[m * N + n] ? "*" : ".");
+      std::cout << (this->cells[m * N + n] ? "*" : ".");
     }
     std::cout << std::endl;
   }
@@ -23,7 +23,7 @@ void Board::randomize() {
 
   for (int m = 1; m < this->M - 1; ++m) {
     for (int n = 1; n < this->N - 1; ++n) {
-      board[m * N + n] = (rng() % 2) == 1;
+      cells[m * N + n] = (rng() % 2) == 1;
     }
   }
 }

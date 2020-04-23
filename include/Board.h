@@ -15,7 +15,7 @@ public:
   void randomize();
   virtual void tick() = 0;
 protected:
-  bool *board;
+  bool *cells;
   size_t M, N;
 };
 

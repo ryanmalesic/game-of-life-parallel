@@ -17,10 +17,10 @@ void RajaBoard::tick() {
       >
   >;
 
-  bool *futureBoard = new bool[M * N]{false};
+  bool *futureCells = new bool[M * N]{false};
 
-  RAJA::View<bool, RAJA::Layout<2>> BoardView(this->board, this->M, this->N);
-  RAJA::View<bool, RAJA::Layout<2>> FutureBoard(futureBoard, this->M, this->N);
+  RAJA::View<bool, RAJA::Layout<2>> CellsView(this->cells, this->M, this->N);
+  RAJA::View<bool, RAJA::Layout<2>> FutureCellsView(futureCells, this->M, this->N);
 
   auto mRange = RAJA::RangeSegment(1, (this->M) - 1);
   auto nRange = RAJA::RangeSegment(1, (this->N) - 1);
@@ -32,24 +32,24 @@ void RajaBoard::tick() {
 
         for (int dm = -1; dm <= 1; ++dm) {
           for (int dn = -1; dn <= 1; ++dn) {
-            numNeighbors += BoardView((m + dm), (n + dn)) ? 1 : 0;
+            numNeighbors += CellsView((m + dm), (n + dn)) ? 1 : 0;
           }
         }
 
-        if (BoardView(m, n)) {
+        if (CellsView(m, n)) {
           numNeighbors -= 1;
         }
 
-        if (!BoardView(m, n) && numNeighbors == 3) {
+        if (!CellsView(m, n) && numNeighbors == 3) {
           // Cell is born
-          FutureBoard(m, n) = true;
+          FutureCellsView(m, n) = true;
         } else {
           // Cell survives with two or three neighbors, dies otherwise
           // Cell is not born
-          FutureBoard(m, n) = BoardView(m, n) && (numNeighbors == 2 || numNeighbors == 3);
+          FutureCellsView(m, n) = CellsView(m, n) && (numNeighbors == 2 || numNeighbors == 3);
         }
       }
   );
 
-  this->board = futureBoard;
+  this->cells = futureCells;
 }
