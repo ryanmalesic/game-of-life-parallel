@@ -1,12 +1,13 @@
 #include <iostream>
 #include <getopt.h>
 #include <string>
+#include <OmpBoard.h>
 #include <RajaBoard.h>
 #include <Timer.hpp>
 
 void print_usage() {
-  std::cout << "Usage: main -b (RAJA) -m <rows> -n <cols> [-s -p -t]" << std::endl;
-  std::cout << "       main --board (RAJA) --rows <rows> --cols <cols> [--step --print --time]" << std::endl;
+  std::cout << "Usage: main -b (OMP | RAJA) -m <rows> -n <cols> [-s -p -t]" << std::endl;
+  std::cout << "       main --board (OMP | RAJA) --rows <rows> --cols <cols> [--step --print --time]" << std::endl;
 }
 
 int main(int argc, char **argv) {
@@ -57,6 +58,8 @@ int main(int argc, char **argv) {
 
   if (board_string == "RAJA") {
     board = new RajaBoard(M, N);
+  } else if (board_string == "OMP") {
+    board = new OmpBoard(M, N);
   } else {
     std::cout << "Invalid board" << std::endl;
     print_usage();
