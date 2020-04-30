@@ -3,6 +3,7 @@
 #include <string>
 #include <OmpBoard.h>
 #include <RajaBoard.h>
+#include <CPPThreadBoard.h>
 #include <Timer.hpp>
 
 void print_usage() {
@@ -57,10 +58,12 @@ int main(int argc, char **argv) {
   Board *board;
 
   if (board_string == "RAJA") {
-    board = new RajaBoard(M, N);
+      board = new RajaBoard(M, N);
   } else if (board_string == "OMP") {
-    board = new OmpBoard(M, N);
-  } else {
+      board = new OmpBoard(M, N);
+  } else if (board_string == "CPP"){
+      board = new CPPThreadBoard(M,N);
+    }else {
     std::cout << "Invalid board" << std::endl;
     print_usage();
     exit(EXIT_FAILURE);
