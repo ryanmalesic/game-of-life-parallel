@@ -1,2 +1,2 @@
 set(TARGET GameOfLife)
-add_executable(${TARGET} main.cpp Board.cpp OmpBoard.cpp RajaBoard.cpp CPPThreadBoard.cpp)
+add_executable(${TARGET} main.cpp Board.cpp OmpBoard.cpp RajaBoard.cpp CPPThreadBoard.cpp SerialBoard.cpp)

@@ -4,11 +4,14 @@
 #include <OmpBoard.h>
 #include <RajaBoard.h>
 #include <CPPThreadBoard.h>
+#include <SerialBoard.h>
 #include <Timer.hpp>
 
 void print_usage() {
-  std::cout << "Usage: main -b (OMP | RAJA) -m <rows> -n <cols> [-s -p -t]" << std::endl;
-  std::cout << "       main --board (OMP | RAJA) --rows <rows> --cols <cols> [--step --print --time]" << std::endl;
+  std::cout << "Usage: main -b (CPPTHREADS | OMP | RAJA | SERIAL) -m <rows> -n <cols> [-s -p -t]" << std::endl;
+  std::cout
+      << "       main --board (CPPTHREADS | OMP | RAJA | SERIAL) --rows <rows> --cols <cols> [--step --print --time]"
+      << std::endl;
 }
 
 int main(int argc, char **argv) {
@@ -58,12 +61,14 @@ int main(int argc, char **argv) {
   Board *board;
 
   if (board_string == "RAJA") {
-      board = new RajaBoard(M, N);
+    board = new RajaBoard(M, N);
   } else if (board_string == "OMP") {
-      board = new OmpBoard(M, N);
-  } else if (board_string == "CPP"){
-      board = new CPPThreadBoard(M,N);
-    }else {
+    board = new OmpBoard(M, N);
+  } else if (board_string == "CPPTHREADS") {
+    board = new CPPThreadBoard(M, N);
+  } else if (board_string == "SERIAL") {
+    board = new SerialBoard(M, N);
+  } else {
     std::cout << "Invalid board" << std::endl;
     print_usage();
     exit(EXIT_FAILURE);
