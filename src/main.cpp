@@ -4,6 +4,7 @@
 #include <OmpBoard.h>
 #include <RajaBoard.h>
 #include <CPPThreadBoard.h>
+#include <SerialBoard.h>
 #include <Timer.hpp>
 
 void print_usage() {
@@ -61,9 +62,11 @@ int main(int argc, char **argv) {
       board = new RajaBoard(M, N);
   } else if (board_string == "OMP") {
       board = new OmpBoard(M, N);
-  } else if (board_string == "CPP"){
-      board = new CPPThreadBoard(M,N);
-    }else {
+  } else if (board_string == "CPP") {
+      board = new CPPThreadBoard(M, N);
+  }  else if (board_string == "Serial"){
+      board = new SerialBoard(M,N);
+  } else {
     std::cout << "Invalid board" << std::endl;
     print_usage();
     exit(EXIT_FAILURE);
