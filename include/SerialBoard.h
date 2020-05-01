@@ -9,8 +9,8 @@
 
 class SerialBoard : public Board {
 public:
-    SerialBoard(size_t M, size_t N);
-    void tick() override;
+  SerialBoard(size_t M, size_t N);
+  void tick() override;
 };
 
 #endif //GAME_OF_LIFE_PARALLEL_SERIALBOARD_H

@@ -9,7 +9,7 @@
 Board::Board(size_t M, size_t N) : M(M), N(N), cells(new bool[M * N]{false}) {};
 
 Board::~Board() {
-  delete [] this->cells;
+  delete[] this->cells;
 }
 
 void Board::print() {
