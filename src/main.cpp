@@ -3,7 +3,7 @@
 #include <string>
 #include <OmpBoard.h>
 #include <RajaBoard.h>
-#include <CPPThreadBoard.h>
+#include <CppThreadsBoard.h>
 #include <SerialBoard.h>
 #include <Timer.hpp>
 
@@ -65,7 +65,7 @@ int main(int argc, char **argv) {
   } else if (board_string == "OMP") {
     board = new OmpBoard(M, N);
   } else if (board_string == "CPPTHREADS") {
-    board = new CPPThreadBoard(M, N);
+    board = new CppThreadsBoard(M, N);
   } else if (board_string == "SERIAL") {
     board = new SerialBoard(M, N);
   } else {
