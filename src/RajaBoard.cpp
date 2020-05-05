@@ -51,5 +51,6 @@ void RajaBoard::tick() {
       }
   );
 
+  delete[] this->cells;
   this->cells = futureCells;
 }

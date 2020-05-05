@@ -37,5 +37,6 @@ void OmpBoard::tick() {
     }
   }
 
+  delete[] this->cells;
   this->cells = futureCells;
 }

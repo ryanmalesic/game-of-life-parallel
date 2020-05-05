@@ -33,5 +33,6 @@ void SerialBoard::tick() {
     }
   }
 
+  delete[] this->cells;
   this->cells = futureCells;
 }
